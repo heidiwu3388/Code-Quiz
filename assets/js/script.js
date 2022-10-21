@@ -1,8 +1,6 @@
 let timeLeft = 0;
-let quizEnd = true;
 let intervalId;
 let currentQuestion = 0; //index of the current question
-let score = 0;
 const startEl = document.querySelector("#btn-start");
 const cardStartEl = document.querySelector("#card-start");
 const cardQuizEl = document.querySelector("#card-quiz");
@@ -12,7 +10,8 @@ const questionEl = document.querySelector("#question");
 const choicesEl = document.querySelector("#choices");
 const messageEl = document.querySelector("#message");
 const scoreEl = document.querySelector("#score");
-
+const formInitialsEl = document.querySelector("#form-initials");
+const inputInitialsEl = document.querySelector("#initials");
 const quiz = [
     {
         question: "Q1. Inside which HTML element do we put the JavaScript?", 
@@ -72,17 +71,16 @@ function renderQuestion() {
         choicesEl.children[i].textContent = quiz[currentQuestion].choices[i];
         choicesEl.children[i].setAttribute("data-correct", i===quiz[currentQuestion].answerindex);
     }
-    // clear message area
-    messageEl.textContent = "";
+    // let message stay for 0.5 second before clearing it
+    setTimeout(()=>messageEl.textContent="",500);
 };
 
 function renderQuizEnd() {
-    quizEnd = true;
     console.log("quiz end");
     clearInterval(intervalId); // stop count down timer
-    score = timeLeft>0 ? timeLeft : 0; // calculate score (timeLeft may be negative when 15s is deducted)
+    let score = timeLeft>0 ? timeLeft : 0; // calculate score (timeLeft may be negative when 15s is deducted)
     
-    // hide QUIZ card and show END card
+    // hide QUIZ page and show END page
     cardQuizEl.style.display = "none";
     cardEndEl.style.display = "block";
 
@@ -108,33 +106,72 @@ startEl.addEventListener("click", function() {
         //count down and show time
         timeLeft--;
         timeEl.textContent = timeLeft;
-        //stop timer when count down to 0
+        //stop timer and go to END page when count down to 0
         if (timeLeft<=0){
             clearInterval(intervalId);
-            quizEnd = true;
+            renderQuizEnd();
         }
     },1000);
     // render the question one by one
     renderQuestion();
 });
 
+// when one of the choices is clicked
 choicesEl.addEventListener("click", function(event) {
-    
+    console.log("choices clicked");
     // check if the choice is correct
     if (event.target.dataset.correct === "true") { 
         messageEl.textContent = "Correct ✅"; 
     } else { // wrong choice
         messageEl.textContent = "Wrong ❌"; 
         timeLeft -= 15; // deduct 15 seconds from the score
+        timeEl.textContent = timeLeft; // show the new time
     };
-    // delay 0.5 second for message display
-    setTimeout( function() {
-        // quiz end if it is last question or time is out
-        if (lastQuestion() || timeLeft <= 0) {
-            renderQuizEnd();
-        } else {
-            currentQuestion++;
-            renderQuestion();
-        };
-    },500);
+    
+    // quiz end if it is last question or time is out
+    if (lastQuestion() || timeLeft <= 0) {
+        renderQuizEnd();
+    } else { // otherwise, show next question
+        currentQuestion++;
+        renderQuestion();
+    };
+});
+
+// when submit button is clicked for the initials input
+formInitialsEl.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let myInitials = inputInitialsEl.value.trim();
+    let myScore = scoreEl.textContent;
+
+    // get highscores from localStorage
+    let allHighScores = JSON.parse(localStorage.getItem("highscores") || "[]");
+    
+    // check my previous highscore, replace if this quiz get higher score,
+    let found = false;
+    allHighScores.forEach(highscore => {
+        console.log(highscore.initials, highscore.score);
+        if (highscore.initials === myInitials) {
+            console.log("found");
+            found = true;
+            if (myScore > highscore.score) {
+                highscore.score = myScore
+            };
+        }
+    }); 
+    
+    // if previous highscore not found, add this quiz's score to 
+    if (!found) {
+        // create myHighScore object for this quiz
+        const myHighScore = {
+            initials: myInitials,
+            score: myScore
+        }
+        // add my high score to the end of the array
+        allHighScores.push(myHighScore);
+    };
+    // store the allHighScores array in local storage
+    localStorage.setItem("highscores", JSON.stringify(allHighScores));
+
+    // go to HIGHSCORE page
+
 });
