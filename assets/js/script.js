@@ -8,6 +8,8 @@ const cardQuizEl = document.querySelector("#card-quiz");
 const timeEl = document.querySelector("#time");
 const questionEl = document.querySelector("#question");
 const choicesEl = document.querySelector("#choices");
+const messageEl = document.querySelector("#message");
+
 const quiz = [
     {
         question: "Inside which HTML element do we put the JavaScript?", 
@@ -59,17 +61,21 @@ const quiz = [
     }
 ];
 
-function presentQuestion() {
-    // check if there is still question
-    if (currentQuestion >= quiz.length) return;
-
-    // present question
+function renderQuestion() {
+    // render question
     questionEl.textContent = quiz[currentQuestion].question;
-    // present the 4 choices and set up the attribute data-answer
+    // render the 4 choices and set up the attribute data-answer
     for (i=0; i<4; i++) {
         choicesEl.children[i].textContent = quiz[currentQuestion].choices[i];
-        choicesEl.children[i].setAttribute("data-answer", i===quiz[currentQuestion].answerindex);
+        choicesEl.children[i].setAttribute("data-correct", i===quiz[currentQuestion].answerindex);
     }
+    // clear message area
+    messageEl.textContent = "";
+};
+
+function lastQuestion() {
+    console.log("currect question: ", currentQuestion, "total question: ", quiz.length-1);
+    return (currentQuestion >= quiz.length-1);
 };
 
 // when Start button is clicked
@@ -90,6 +96,31 @@ startEl.addEventListener("click", function() {
             quizEnd = true;
         }
     },1000);
-    // present the question one by one
-    presentQuestion();
+    // render the question one by one
+    renderQuestion();
+});
+
+choicesEl.addEventListener("click", function(event) {
+    
+    // check if the choice is correct
+    if (event.target.dataset.correct === "true") { 
+        messageEl.textContent = "Correct✅"; 
+    } else { // wrong choice
+        messageEl.textContent = "Wrong❌"; 
+        timeLeft -= 15; // deduct 15 seconds from the score
+    };
+    // delay 0.5 second for message display
+    setTimeout( function() {
+        // quiz end if it is last question or time is out
+        if (lastQuestion() || timeLeft <= 0) {
+            quizEnd = true;
+            console.log("quiz end");
+            // stop count down timer
+            // calculate score
+            // render "end-card" ???
+        } else {
+            currentQuestion++;
+            renderQuestion();
+        };
+    },500);
 });

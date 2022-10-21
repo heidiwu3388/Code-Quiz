@@ -63,8 +63,8 @@ main {
     background-color: rgba(92, 0, 128, 0.9);
     border-radius: 5px;;
 }
-#card-quiz .message {
-    font-size: 20px;
+#card-quiz #message {
+    font-size: 25px;
     font-style: italic;
     color: grey;
     padding: 5px;;
