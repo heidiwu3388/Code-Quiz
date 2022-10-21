@@ -13,12 +13,12 @@
         <h3>Time: <span id="time">0</span></h3>
         </header>
         <main>
-            <section class="card show-card" id="card-start">
+            <section class="card" id="card-start" style="display:block">
                 <h1>Coding Quiz Challenge</h1>
                 <p> Try to answer the following code-related questions within the time limit. Keep in mind that incorrection answers will penalize your score/time by 15 seconds.</p>
                 <button id="btn-start">Start Quiz</button>
             </section>
-            <section class="card hide-card" id="card-quiz">
+            <section class="card" id="card-quiz" style="display:none">
                 <p id="question"></p>
                 <ol id="choices">
                     <li></li>
@@ -28,6 +28,16 @@
                 </ol>
                 <hr>
                 <p id="message"></p>
+            </section>
+            <section class="card" id="card-end" style="display:none">
+                <h1>All Done!</h1>
+                <p>Your final score is <span id="score"></span></p>
+                <form>
+                    <label for="initials">Enter initials:</label>
+                    <input type="text" id="initials">
+                    <br>
+                    <button type="submit" id="btn-submit">Submit</button>
+                </form>
             </section>
         </main>
         <script src="./assets/js/script.js"></script>

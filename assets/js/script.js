@@ -2,17 +2,20 @@ let timeLeft = 0;
 let quizEnd = true;
 let intervalId;
 let currentQuestion = 0; //index of the current question
+let score = 0;
 const startEl = document.querySelector("#btn-start");
 const cardStartEl = document.querySelector("#card-start");
 const cardQuizEl = document.querySelector("#card-quiz");
+const cardEndEl = document.querySelector("#card-end");
 const timeEl = document.querySelector("#time");
 const questionEl = document.querySelector("#question");
 const choicesEl = document.querySelector("#choices");
 const messageEl = document.querySelector("#message");
+const scoreEl = document.querySelector("#score");
 
 const quiz = [
     {
-        question: "Inside which HTML element do we put the JavaScript?", 
+        question: "Q1. Inside which HTML element do we put the JavaScript?", 
         choices: ["<script>",
                 "<scripting>",
                 "<js>",
@@ -20,7 +23,7 @@ const quiz = [
         answerindex: 0
     },
     {
-        question: "How to write an IF statement in JavaScript?", 
+        question: "Q2. How to write an IF statement in JavaScript?", 
         choices: ["if i == 5 then",
                 "if i = 5",
                 "if ( i == 5 )",
@@ -28,7 +31,7 @@ const quiz = [
         answerindex: 2
     },
     {
-        question: "Which is the correct way to write a JavaScript array", 
+        question: "Q3. Which is the correct way to write a JavaScript array", 
         choices: ["var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')",
                 "var colors = 'red', 'green', 'blue'",
                 "var colors = (1:'red', 2:'green', 3:'blue')",
@@ -36,7 +39,7 @@ const quiz = [
         answerindex: 3
     },
     {
-        question: "Who is making the Web standards?", 
+        question: "Q4. Who is making the Web standards?", 
         choices: ["The World Wide Web COnsortium",
                 "Microsoft",
                 "Google",
@@ -44,15 +47,15 @@ const quiz = [
         answerindex: 0
     },
     {
-        question: "How can you open a link in a new tab/browser window?", 
-        choices: ["&la href='url' target='_bland'>",
-                "&la href='url' target='new'>",
-                "&la href='url' new>",
-                "&la href='url' _blank'>"],
+        question: "Q5. How can you open a link in a new tab/browser window?", 
+        choices: ["<href='url' target='_bland'>",
+                "<href='url' target='new'>",
+                "<href='url' new>",
+                "<href='url' _blank'>"],
         answerindex: 0
     },
     {
-        question: "In HTML, which attribute is used to specify that an input field must be filled out?", 
+        question: "Q6. In HTML, which attribute is used to specify that an input field must be filled out?", 
         choices: ["required",
                 "placeholder",
                 "validate",
@@ -73,6 +76,21 @@ function renderQuestion() {
     messageEl.textContent = "";
 };
 
+function renderQuizEnd() {
+    quizEnd = true;
+    console.log("quiz end");
+    clearInterval(intervalId); // stop count down timer
+    score = timeLeft>0 ? timeLeft : 0; // calculate score (timeLeft may be negative when 15s is deducted)
+    
+    // hide QUIZ card and show END card
+    cardQuizEl.style.display = "none";
+    cardEndEl.style.display = "block";
+
+    // display score
+    scoreEl.textContent = score;
+
+};
+
 function lastQuestion() {
     console.log("currect question: ", currentQuestion, "total question: ", quiz.length-1);
     return (currentQuestion >= quiz.length-1);
@@ -81,8 +99,8 @@ function lastQuestion() {
 // when Start button is clicked
 startEl.addEventListener("click", function() {
     // hide start card and show quiz card
-    cardStartEl.setAttribute("class", "card hide-card");
-    cardQuizEl.setAttribute("class", "card show-card");
+    cardStartEl.style.display = "none";
+    cardQuizEl.style.display = "block";
     //start timer
     timeLeft = 75;
     timeEl.textContent = timeLeft;
@@ -104,20 +122,16 @@ choicesEl.addEventListener("click", function(event) {
     
     // check if the choice is correct
     if (event.target.dataset.correct === "true") { 
-        messageEl.textContent = "Correct✅"; 
+        messageEl.textContent = "Correct ✅"; 
     } else { // wrong choice
-        messageEl.textContent = "Wrong❌"; 
+        messageEl.textContent = "Wrong ❌"; 
         timeLeft -= 15; // deduct 15 seconds from the score
     };
     // delay 0.5 second for message display
     setTimeout( function() {
         // quiz end if it is last question or time is out
         if (lastQuestion() || timeLeft <= 0) {
-            quizEnd = true;
-            console.log("quiz end");
-            // stop count down timer
-            // calculate score
-            // render "end-card" ???
+            renderQuizEnd();
         } else {
             currentQuestion++;
             renderQuestion();

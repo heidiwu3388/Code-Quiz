@@ -19,29 +19,39 @@ main {
 }
 
 .card {
-    width: 600px;
+    width: 70%;
     display: block;
 }
 
-/* styling for the start card */
+button {
+    font-size: 25px;
+    padding: 0px 25px;
+    height: 40px;
+    background-image: linear-gradient(to right, rgb(83, 43, 226), white, rgb(83, 43, 226));
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 25px;
+}
+
+label,
+input {
+    font-size: 25px;
+    padding: 10px;
+
+}
+
+/* styling for the START card */
 #card-start {
     text-align: center;
 }
-#card-start h1 {
-    font-size: 40px;
-}
-#card-start p {
-    font-size: 20px;
-}
-#card-start button {
-    font-size: 25px;
-    padding: 5px 25px;
-    height: 40px;
-    background-image: linear-gradient(to right, purple, white, purple);
-}
 
 
-/* styling for the quiz card */
+/* styling for the QUIZ card */
 #card-quiz {
     text-align: left;
 }
@@ -60,7 +70,7 @@ main {
     font-size: 20px;
     line-height: 40px;
     color: white;
-    background-color: rgba(92, 0, 128, 0.9);
+    background-color: rgb(83, 43, 226);
     border-radius: 5px;;
 }
 #card-quiz #message {
@@ -73,11 +83,13 @@ main {
     opacity: 0.6;
 }
 
-/* control hide or show the different cards */
-.hide-card {
-    display: none; 
+
+/* styling for the END card */
+#card-end {
+    text-align: center;
 }
-.show-card {
-   display: block; 
+
+#card-end input {
+    margin-top: 1em;
+    margin-bottom: 2em;
 }
- 
