@@ -81,7 +81,22 @@ input {
 
 
 /* styling for the END card */
+#card-end {
+    width: 500px;
+}
 #card-end input {
     margin-top: 1em;
     margin-bottom: 2em;
+}
+#highscores-list div {
+    list-style: none ;
+    list-style-position: inside;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 2px 0px;
+    font-size: 20px;
+    line-height: 40px;
+    color: black;
+    background-color: rgb(216, 216, 216);
+    border-radius: 5px;;
 }
