@@ -140,7 +140,7 @@ choicesEl.addEventListener("click", function(event) {
 // when submit button is clicked for the initials input
 formInitialsEl.addEventListener("submit", function(event) {
     event.preventDefault();
-    let myInitials = inputInitialsEl.value.trim();
+    let myInitials = inputInitialsEl.value.trim().toUpperCase();
     let myScore = scoreEl.textContent;
 
     // get highscores from localStorage
@@ -169,6 +169,9 @@ formInitialsEl.addEventListener("submit", function(event) {
         // add my high score to the end of the array
         allHighScores.push(myHighScore);
     };
+    // sort the score in descending order, and keep top 10 only
+    allHighScores.sort((a, b) => {return (b.score - a.score);}).splice(10);
+    
     // store the allHighScores array in local storage
     localStorage.setItem("highscores", JSON.stringify(allHighScores));
 
