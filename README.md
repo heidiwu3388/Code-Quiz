@@ -27,18 +27,12 @@ N/A
 - On the same page, click "Go Back" button to go to the first page, click "Clear High Scores" button to clear all high scores.
 - Also, you can go to the "High Scores" page anytime when you click "View High Scores" link on the top left corner.
 
-
 ## Screenshot
+
 ![Code-Quiz-desktop-Start html](https://user-images.githubusercontent.com/111156269/197365661-21b6f376-17b1-4958-8e5b-b03d1c15b084.png)
 ![Code-Quiz-desktop-Question](https://user-images.githubusercontent.com/111156269/197365650-a7d602af-9e9f-40e9-824a-a929db45c26f.png)
 ![Code-Quiz-desktop-AllDone](https://user-images.githubusercontent.com/111156269/197365652-82847c02-0503-40f2-8b63-69a605cd94e1.png)
 ![Code-Quiz-desktop-HighScores html](https://user-images.githubusercontent.com/111156269/197365651-40c25a60-ec72-4162-a405-e335ad14165a.png)
-
-![Code-Quiz-Start](https://user-images.githubusercontent.com/111156269/197365447-8d012795-9631-4b36-bb55-e4433d91b86b.PNG)
-![Code-Quiz-Question](https://user-images.githubusercontent.com/111156269/197365445-8a8f81e0-6b56-423f-bf26-2be6b90ed677.PNG)
-![Code-AllDone](https://user-images.githubusercontent.com/111156269/197365443-aabd9d9b-3405-4c13-b481-4288d0651e8f.PNG)
-![Code-Quiz-HighScores](https://u![Code-Quiz-desktop-Start html](https://user-images.githubusercontent.com/111156269/197365648-07e6012a-4fd0-43c5-b84a-dc16f044d4c7.png)
-
 
 ## Credits
 
