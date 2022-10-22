@@ -28,7 +28,6 @@ main {
 }
 
 .card {
-    width: 60%;
     display: block;
     text-align: center;
 }
@@ -59,23 +58,28 @@ input {
 
 }
 
+/* styling for the START card */
+#card-start {
+    width: 50%;
+}
 
 /* styling for the QUIZ card */
 #card-quiz {
     text-align: left;
+    width: 50%;
 }
 #card-quiz #question {
     font-size: 30px;
 }
 
 #card-quiz #choices {
+    width: 
     padding: 0;
 }
 #card-quiz #choices div {
     font-size: 20px;
-    min-width: 400px;
-    width: fit-content;
-    margin: 10px;
+    width: 80%;
+    margin: 10px 0px;;
     padding: 2px 40px;
     line-height: 40px;
     color: white;
@@ -95,20 +99,26 @@ input {
 
 /* styling for the END card */
 #card-end {
-    width: 500px;
+    width: 45%;
 }
 #card-end input {
     margin-top: 1em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
+#card-end #score {
+    background-color: aqua;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* styling for HighScore page */
 #highscores-list {
     min-height: 30vh;
-    background-color: antiquewhite;
+    background-color: #2d1477;
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
 }
-
 #highscores-list div {
     width: 100%;
     margin: 10px 0px;
@@ -120,3 +130,52 @@ input {
     box-shadow: 5px 5px 5px #888888;
     border-radius: 5px;
 }
+
+
+/* Tablets */
+@media screen and (max-width: 992px) {
+    #card-start {
+        width: 70%;
+    }
+    #card-quiz {
+        width: 70%
+    }
+    #card-end {
+        width: 50%;
+    }
+  }
+  
+/* Large smartphones */
+  @media screen and (max-width: 768px) {
+    #card-start {
+        width: 90%;
+    }
+    #card-quiz {
+        width: 95%
+    }
+    #card-end {
+        width: 60%
+    }
+    #card-end input {
+        width: 80%;
+        padding: 0;
+        margin-top: 5px;
+        margin-bottom: 10px;
+}
+  
+  /* Small smartphones */
+  @media screen and (max-width: 576px) {
+    #card-quiz {
+        width: 100%
+    }
+    #card-quiz #choices div {
+        width: 95%;
+        padding: 2px 5px;
+    }
+    #card-end {
+        width: 90%
+    }
+    header h3 {
+        font-size: 20px;
+    }
+  }
