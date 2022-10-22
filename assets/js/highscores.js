@@ -7,7 +7,6 @@ let allHighscores = JSON.parse(localStorage.getItem("highscores") || "[]");
 
 // display each highscore in a dynamically created <li> 
 allHighscores.forEach(element => {
-    console.log(element.initials, element.score);
     let highscoreEl = document.createElement("div");
     highscoreEl.textContent = element.initials + " - " + element.score;
     listEl.appendChild(highscoreEl);
@@ -15,7 +14,6 @@ allHighscores.forEach(element => {
 
 // when GO BACK button is clicked, go back to main page (index.html)
 goBackEl.addEventListener("click", function(){
-    console.log("go back");
     location.href = "./index.html"
 });
 

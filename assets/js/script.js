@@ -76,7 +76,6 @@ function renderQuestion() {
 };
 
 function renderQuizEnd() {
-    console.log("quiz end");
     clearInterval(intervalId); // stop count down timer
     let score = timeLeft>0 ? timeLeft : 0; // calculate score (timeLeft may be negative when 15s is deducted)
     
@@ -90,7 +89,6 @@ function renderQuizEnd() {
 };
 
 function lastQuestion() {
-    console.log("currect question: ", currentQuestion, "total question: ", quiz.length-1);
     return (currentQuestion >= quiz.length-1);
 };
 
@@ -118,7 +116,6 @@ startEl.addEventListener("click", function() {
 
 // when one of the choices is clicked
 choicesEl.addEventListener("click", function(event) {
-    console.log("choices clicked");
     // check if the choice is correct
     if (event.target.dataset.correct === "true") { 
         messageEl.textContent = "Correct ✅"; 
@@ -149,9 +146,7 @@ formInitialsEl.addEventListener("submit", function(event) {
     // check my previous highscore, replace if this quiz get higher score,
     let found = false;
     allHighScores.forEach(highscore => {
-        console.log(highscore.initials, highscore.score);
         if (highscore.initials === myInitials) {
-            console.log("found");
             found = true;
             if (myScore > highscore.score) {
                 highscore.score = myScore
