@@ -34,6 +34,7 @@ main {
 
 button {
     font-size: 25px;
+    color: black;
     padding: 0px 25px;
     height: 40px;
     margin: 5px 10px;
