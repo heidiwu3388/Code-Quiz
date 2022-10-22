@@ -173,5 +173,6 @@ formInitialsEl.addEventListener("submit", function(event) {
     localStorage.setItem("highscores", JSON.stringify(allHighScores));
 
     // go to HIGHSCORE page
+    location.href = "./highscores.html"
 
 });
