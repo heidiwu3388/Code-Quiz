@@ -10,7 +10,7 @@ N/A
 ## Usage
 
 - Go to https://heidiwu3388.github.io/Code-Quiz/
-- Click "Start" button to start the quiz.
+- Click "Start Quiz" button to start the quiz.
 - Once the quiz starts, the timer on the top right corner will count down from 75 seconds.
 - Click one of the choices for each question and a message at the bottom will be displayed to let you know whether it is correct or wrong.
 - If the choice is wrong, 15 seconds will be deducted from the timer.
