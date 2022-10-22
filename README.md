@@ -29,10 +29,10 @@ N/A
 
 
 ## Screenshot
+![Code-Quiz-Start](https://user-images.githubusercontent.com/111156269/197365447-8d012795-9631-4b36-bb55-e4433d91b86b.PNG)
+![Code-Quiz-Question](https://user-images.githubusercontent.com/111156269/197365445-8a8f81e0-6b56-423f-bf26-2be6b90ed677.PNG)
 ![Code-AllDone](https://user-images.githubusercontent.com/111156269/197365443-aabd9d9b-3405-4c13-b481-4288d0651e8f.PNG)
 ![Code-Quiz-HighScores](https://user-images.githubusercontent.com/111156269/197365444-b34ce110-d56d-4777-afae-cd82dc8539b2.PNG)
-![Code-Quiz-Question](https://user-images.githubusercontent.com/111156269/197365445-8a8f81e0-6b56-423f-bf26-2be6b90ed677.PNG)
-![Code-Quiz-Start](https://user-images.githubusercontent.com/111156269/197365447-8d012795-9631-4b36-bb55-e4433d91b86b.PNG)
 
 
 
