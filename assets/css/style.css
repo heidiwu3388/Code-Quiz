@@ -12,6 +12,15 @@ header {
     justify-content: space-between;
 }
 
+#view-highscores a {
+    text-decoration: none;
+}
+#view-highscores {
+    margin: 15px;
+}
+#time-container {
+    margin: 15px
+}
 main {
     display: flex;
     flex-direction: column;
@@ -19,7 +28,7 @@ main {
 }
 
 .card {
-    width: 70%;
+    width: 60%;
     display: block;
     text-align: center;
 }
@@ -28,11 +37,15 @@ button {
     font-size: 25px;
     padding: 0px 25px;
     height: 40px;
+    margin: 5px 10px;
     background-image: linear-gradient(to right, rgb(83, 43, 226), white, rgb(83, 43, 226));
 }
 
 h1 {
     font-size: 40px;
+}
+h3 {
+    font-size: 25px;
 }
 
 p {
@@ -52,18 +65,18 @@ input {
     text-align: left;
 }
 #card-quiz #question {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #card-quiz #choices {
     padding: 0;
 }
-#card-quiz #choices li {
-    list-style: none ;
+#card-quiz #choices div {
+    font-size: 20px;
+    min-width: 400px;
     width: fit-content;
     margin: 10px;
     padding: 2px 40px;
-    font-size: 20px;
     line-height: 40px;
     color: white;
     background-color: rgb(83, 43, 226);
@@ -75,8 +88,8 @@ input {
     color: grey;
     padding: 5px;;
 }
-#card-quiz li:hover {
-    opacity: 0.6;
+#card-quiz #choices div:hover {
+    background-color: rgba(152, 0, 179, 0.92);
 }
 
 
@@ -88,15 +101,22 @@ input {
     margin-top: 1em;
     margin-bottom: 2em;
 }
+#highscores-list {
+    min-height: 30vh;
+    background-color: antiquewhite;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
 #highscores-list div {
-    list-style: none ;
-    list-style-position: inside;
     width: 100%;
     margin: 10px 0px;
     padding: 2px 0px;
     font-size: 20px;
     line-height: 40px;
     color: black;
-    background-color: rgb(216, 216, 216);
-    border-radius: 5px;;
+    background-color: white;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 5px;
 }

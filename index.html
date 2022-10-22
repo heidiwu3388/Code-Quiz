@@ -10,7 +10,7 @@
     <body>
         <header>
         <h3 id="view-highscores"><a href="./highscores.html">View Highscores</a></h3>
-        <h3>Time: <span id="time">0</span></h3>
+        <h3 id="time-container">Time: <span id="time">0</span></h3>
         </header>
         <main>
             <section class="card" id="card-start" style="display:block">
@@ -20,12 +20,12 @@
             </section>
             <section class="card" id="card-quiz" style="display:none">
                 <p id="question"></p>
-                <ol id="choices">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ol>
+                <div id="choices">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
                 <hr>
                 <p id="message"></p>
             </section>
@@ -34,7 +34,7 @@
                 <p>Your final score is <span id="score"></span></p>
                 <form id="form-initials">
                     <label for="initials">Enter initials:</label>
-                    <input type="text" id="initials" required>
+                    <input type="text" id="initials" required maxlength="12">
                     <br>
                     <button type="submit" id="btn-submit">Submit</button>
                 </form>
