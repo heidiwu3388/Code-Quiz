@@ -39,7 +39,7 @@ const quiz = [
     },
     {
         question: "Q4. Who is making the Web standards?", 
-        choices: ["The World Wide Web COnsortium",
+        choices: ["The World Wide Web Consortium",
                 "Microsoft",
                 "Google",
                 "Mozilla"],
@@ -47,7 +47,7 @@ const quiz = [
     },
     {
         question: "Q5. How can you open a link in a new tab/browser window?", 
-        choices: ["<href='url' target='_bland'>",
+        choices: ["<href='url' target='_blank'>",
                 "<href='url' target='new'>",
                 "<href='url' new>",
                 "<href='url' _blank'>"],
